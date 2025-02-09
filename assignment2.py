@@ -10,7 +10,7 @@ URL = "https://s3.amazonaws.com/cuny-is211-spring2015/birthdays100.csv"
 def downloadData(url):
     """Download the data from the given URL and return it as a decoded string."""
     response = urllib.request.urlopen(url)
-    return response.read().decode('utf-8')
+    return response.read().decode()
 
 
 def processData(file_content):
@@ -20,7 +20,7 @@ def processData(file_content):
 
     lines = file_content.strip().split('\n')
     reader = csv.reader(lines)
-    next(reader)  # Skip header
+    next(reader)
 
     for line_num, row in enumerate(reader, start=1):
         try:
